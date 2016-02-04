@@ -1,0 +1,41 @@
+<section class="mainbar">
+
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            Lista de Usu&aacute;rios
+        </div>
+        <div class="panel-body">
+
+            <div class="pull-right">
+                <a type="button" class="btn btn-success" href="/usuario/create">
+                    <i class="glyphicon glyphicon-open"></i> Novo Usu&aacute;rio
+                </a>
+            </div>
+
+            <table ng-table="vm.tableParams" show-filter="true" class="table table-condensed table-striped">
+                <tr ng-repeat="usuario in $data">
+                    <td data-title="'Nome'" sortable="'name'" filter="{ 'name': 'text' }">{{usuario.name}}</td>
+                    <td data-title="'Sobrenome'" sortable="'surname'" filter="{'surname': 'text'}">{{usuario.surname}}</td>
+                    <td data-title="'Usu&aacute;rio'" sortable="'login'" filter="{'login': 'text'}">{{usuario.login}}</td>
+                    <td>
+                        <div class="table-actions">
+                            <a class="btn btn-default" title="Visualizar" href="/usuario/{{usuario.id}}">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                            </a>
+                            <a class="btn btn-default" title="Editar" href="/usuario/{{usuario.id}}/edit">
+                                <span class="glyphicon glyphicon-edit"></span>
+                            </a>
+                            <a class="btn btn-danger" title="Remover"
+                               ng-really-message="Deseja realmente remover o usu&aacute;rio?"
+                               ng-really-click="vm.remove(usuario)" item="usuario">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                            </a>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+
+        </div>
+    </div>
+
+</section>
