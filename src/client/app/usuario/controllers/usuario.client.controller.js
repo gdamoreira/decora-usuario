@@ -73,7 +73,6 @@
 
         vm.toViewUsuario = function() {
             vm.usuario = Usuario.get({usuarioId: $stateParams.usuarioId});
-            console.log(vm.usuario);
             vm.setFormFields(true);
         };
 
